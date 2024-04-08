@@ -63,6 +63,25 @@ def pattern_search(sequence, pattern):
 
     return indices
 
+def binary_search(sequence, number):
+    """
+    Function performs binary search on !!ordered!! sequence and stores position of match if found.
+    :param sequence: (list): list on numbers
+    :param number: (int): number to match within sequence
+    :return: (int, None): index of match if found, None otherwise
+    """
+    left, right = (0, len(sequence) - 1)
+
+    while left <= right:
+        middle = (right + left) // 2
+
+        if number < sequence[middle]:
+            right = middle - 1
+        elif number > sequence[middle]:
+            left = middle + 1
+        else:
+            return middle
+    return
 
 def main():
    sequential_data = read_data("sequential.json", "unordered_numbers")
