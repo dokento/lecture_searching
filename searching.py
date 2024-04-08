@@ -81,12 +81,23 @@ def binary_search(sequence, number):
             left = middle + 1
         else:
             return middle
-    return
+    return None
 
 def main():
-   sequential_data = read_data("sequential.json", "unordered_numbers")
-   print("sequential Data:", sequential_data)
+    file_name = 'sequential.json'
 
+    sequence = read_data(file_name, "unordered_numbers")
+
+    results = linear_search(sequence, target=0)
+
+    sequence = read_data(file_name, field='dna_sequence')
+    pattern = 'ATA'
+
+    matches = pattern_search(sequence, pattern)
+
+    sequence = read_data(file_name, field='ordered_numbers')
+
+    number_pos = binary_search(sequence, number=14)
 
 
 if __name__ == '__main__':
